@@ -19,7 +19,7 @@ public class Matrix{
             for(int i=0;i<m1.size;i++){
                     for(int j=0;j<m1.size;j++){
                         for(int k=0;k<m1.size;k++){
-                            array[i][j] += m1.array[i][k] * m2.array[k][i];
+                            array[i][j] += m1.array[i][k] * m2.array[k][j];
                         }
                     }
             }
