@@ -1,85 +1,104 @@
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
+public class Strings{
 
-class Q5_Strings
-{
-	private static int countWord(String s, String word)
-        {
-	    int counter = 0;
-	    while (s.contains(word))
-	    {
-	        int index = s.indexOf(word);
-	        s = s.substring(index + word.length(), s.length());
-	        counter++;
-	    }
-	    return counter;
-        }
-        
-	public static void main(String [] args)
-	{
-		Scanner sc = new Scanner(System.in);
-		String s,k;
-		int choice,z;
-		
-		System.out.print("Enter a string: ");
-		s = sc.nextLine();
-		while(true)
-		{
-			System.out.println("\n\n--------------------  MENU  --------------------");	
-			System.out.println("1. Extract a portion of the string");
-			System.out.println("2. Count the occurances of a particular word");
-			System.out.println("3. Replace a substring in the string");
-			System.out.println("4. Sort the string");
-			System.out.println("5. Compare two strings");
-			System.out.println("6. Concatinate two strings");
-			System.out.println("7. Exit");
-			System.out.print("Enter your choice: ");
-			choice = sc.nextInt();
-			
-			switch(choice)
-			{
-				case 1:
-					System.out.print("Enter the length of the extraction: ");
-					z = sc.nextInt();
-					System.out.println("The resulting string is: " + s.substring(0,z));
-					break;
-				case 2:
-					System.out.print("Enter the word to be searched for: ");
-					k = sc.next();
-					System.out.println("The number of occurances are: " + countWord(s, k));
-					break;
-				case 3:
-					System.out.print("Enter the string to be replaced: ");
-					k = sc.next();
-					System.out.print("Enter the string that replaces it: ");
-					String str = sc.next();
-					System.out.println("The modified string is: " + s.replaceFirst(k,str));
-					break;
-				case 4:
-					String[] splits = s.split(" ");
-					Arrays.sort(splits);
-					System.out.println("The sorted string is: ");
-					for(String asset: splits){
-					  System.out.print(asset + " ");
-					}
-					break; 
-				case 5:
-					System.out.print("Enter a string to be compared: ");
-					k = sc.next();
-					System.out.println("The string is same: " + s.equalsIgnoreCase(k));
-					break;
-				case 6:
-					System.out.print("Enter a string to be comcatinated: ");
-					k = sc.next();
-					k = s+k;
-					System.out.println("The concatinated string is: " + k);
-					break;
-				case 7:
-					System.exit(0);
-				default:
-					System.out.println("Wrong choice");
-					break;
-			}
-		}
-	}
+    String s,k,j,p;
+
+    public static void main(String[] args){
+
+            String s,k,j;
+            Scanner sc = new Scanner(System.in);
+
+            while(true){
+                System.out.println("----------------------------------------------------------");
+                System.out.println("**************************Menu*********************");
+                System.out.println("1.Extract a portion of the string");
+                System.out.println("2.Count the occurences of a particular word");
+                System.out.println("3.Replace a substring with a given string");
+                System.out.println("4.Rearange the string and write it in alphabetical order");
+                System.out.println("5.Compare two strings ignoring case");
+                System.out.println("6.Conactenate two strings");
+                System.out.println("7.EXIT!");
+
+                int ch;
+                System.out.print("Enter youe choice:    ");
+                ch = sc.nextInt();
+                    sc.nextLine();
+                switch(ch){
+                    case 1:
+                        System.out.print("Enter the String:   ");
+                        s = sc.nextLine();
+                        System.out.print("Enter the starting position for string extraction");
+                        int n = sc.nextInt();
+                        System.out.print("Enter the no of characters to be extracted");
+                        int m = sc.nextInt();
+                        k = s.substring(n-1,m);
+                        System.out.println("The extracted string is:   "+ k);
+                        break;
+
+                    case 2:
+                        System.out.print("Enter the String:   ");
+                        s = sc.nextLine();
+                        System.out.print("Enter the word whose occurences you have to find:   ");
+                        k = sc.next();
+                        String[] splits = s.split(" ");
+                        int counter =0;
+                        for(int i=0;i<splits.length;i++){
+                            if(splits[i].equals(k))
+                                counter++;
+                        }
+                        System.out.println("The no of occurences of the word are: "+counter);
+                        break;
+
+                    case 3:
+                        System.out.print("Enter the String:   ");
+                        s = sc.nextLine();
+                        System.out.print("Enter the substring you wanna replace:   ");
+                        k = sc.next();
+                        System.out.print("Enter the substring with which you wanna replace it:   ");
+                        j = sc.next();
+                        System.out.println("The string after replacement is  "+s.replace(k,j));
+                        break;
+                    
+                    case 4:
+                        System.out.println("Enter the String");
+                        s = sc.nextLine();
+                        k = s.toLowerCase();
+                        char sortString[] = k.toCharArray();
+                        Arrays.sort(sortString);
+                        j =new String(sortString);
+                        System.out.println("The string after sorting is:  "+j);
+                        break;
+                    
+                    case 5:
+                        System.out.println("Enter string 1");
+                        s = sc.nextLine();
+                        System.out.println("Enter string 2");
+                        k = sc.nextLine();
+
+                        boolean cmp = s.equalsIgnoreCase(k);
+                        if(cmp){
+                            System.out.println("The two strings are equal");
+                        }
+                        else{
+                            System.out.println("The two strings are not equal");
+                        }
+                        break;
+
+                    case 6:
+                        System.out.println("Enter string 1");
+                        s = sc.nextLine();
+                        System.out.println("Enter string 2");
+                        k = sc.nextLine();
+                        j = s +" "+ k;
+                        System.out.println("The string after concatenation is: "+ j);
+                        break;
+
+                    case 7:
+                        System.exit(0);
+                    
+                    default:
+                        System.out.println("IVALID CHOICE");
+                }
+            }
+    }
 }
