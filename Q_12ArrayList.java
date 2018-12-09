@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ArrayLists_a{
+public class Q_12ArrayList{
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
