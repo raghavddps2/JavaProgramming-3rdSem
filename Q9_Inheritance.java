@@ -84,12 +84,12 @@ class Test
 	public static void main(String args[]) 
 	{
         Scanner sc = new Scanner(System.in);
-		/*TwoWheeler tw = new TwoWheeler();
+		TwoWheeler tw = new TwoWheeler();
 		tw.getData();
 		tw.putData();
 		FourWheeler fw=new FourWheeler();
 		fw.getData();
-		fw.putData();*/
+		fw.putData();
         
         
         System.out.println("Enter the details for your two wheeler");
