@@ -4,7 +4,7 @@ public interface Department{
     void readData(Faculty f);
     /*
         We need the faculty object, because the data it will print or read from the user are
-        Defined in Department.java only.
+        Defined in Faculty.java only.
     */
     void printData(Faculty f);
     /*
