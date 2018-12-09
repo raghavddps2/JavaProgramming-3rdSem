@@ -47,6 +47,11 @@ public class Q12_LinkedList{
                             System.out.println("The LinkedList is Empty");
                         }
                         else{
+                            /*
+                                It is necessary to typecast an iterator only when The generic has not been defined while 
+                                Initilaizing the iterator, if we have Iterator<String> itr = n=ll.iterator();, then it is not necessary 
+                                to type cast whule uding itr.next(), this will return string only
+                            */
                             String e1="";
                             System.out.println("The elements with length less than 5 are");
                             Iterator<String> itr = ll.iterator();
