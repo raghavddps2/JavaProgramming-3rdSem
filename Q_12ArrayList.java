@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Q_12ArrayList.java{
+public class ArrayLists_a{
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
@@ -28,12 +28,18 @@ public class Q_12ArrayList.java{
                         break;
                 
                 case 3:
+                        if(Q.isEmpty()){
+                            System.out.println("No elements in the Queue");
+                        }
                         System.out.println("The elements of the Queue are:");
                         for(int i=0;i<Q.size();i++){
                             System.out.println(Q.get(i));
                         }
                         break;
                 case 4:
+                        if(Q.isEmpty()){
+                            System.out.println("No elements in the Queue");
+                        }
                         System.out.println("The elements with length less than or equal to 5 are:\t");
                         for(int i=0;i<Q.size();i++){
                             if(Q.get(i).length() <=5){
