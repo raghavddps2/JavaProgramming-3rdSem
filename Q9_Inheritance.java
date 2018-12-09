@@ -1,74 +1,115 @@
-import java.util.Scanner;
-abstract class Vehicle{
+import java.util.*;
 
-    int year_of_manufacture;
-    Vehicle(){
-        year_of_manufacture = 0;
-    }
-
-    abstract void putData(int x);
-    abstract int getData();
+abstract class Vehicle 
+{
+	int year_of_manfacture;
+	public abstract void getData();
+	public abstract void putData();
 }
 
-class TwoWheeler extends Vehicle{
+class TwoWheeler extends Vehicle 
+{
+	protected String brand;
+	protected int cost;
+	String EngineType;
+	public String color;
+	Scanner s;
+	public void getData() 
+	{
+		
+			s = new Scanner(System.in);
+			 System.out.println("Enter Brand of TwoWheeler:");
+			 brand=s.next();
+			System.out.println("Enter Cost of TwoWheeler");
+			cost = Integer.parseInt(s.next());
+			System.out.println("Enter Engine Type TwoWheeler (2_Stroke or 4_ Stroke)");
+			EngineType = s.next();
+			System.out.println("Enter Color of TwoWheeler");
+			color = s.next();
+	}
 
-        TwoWheeler(){
-            year_of_manufacture = 0;
-        }
-        void putData(int x){
-            year_of_manufacture = x;
-        }
-        int getData(){
-            return year_of_manufacture;
-        }
-
+	public void putData() 
+	{
+		System.out.println("TWO WHEELER\nBrand:" + brand + "\nEngineType: "
+				+ EngineType + "\nCost:" + cost + "\nColor:" + color+"\n\n");
+	}
 }
 
-final class FourWheeler extends Vehicle{
+final class FourWheeler extends Vehicle 
+{
+	private String brand;
+	protected int cost;
+	String EngineType;
+	public String color;
+    	Scanner s;
+	public void getData() 
+	{
+			s = new Scanner(System.in);
+			 System.out.println("Enter Brand of FourWheeler:");
+			 brand=s.next();
+			System.out.println("Enter Cost of FourWheeler");
+			cost = Integer.parseInt(s.next());
+			System.out.println("Enter Engine Type of FourWheeler (2_Stroke or 4_Stroke)");
+			EngineType = s.next();
+			System.out.println("Enter Color of FourWheeler");
+			color = s.next();
+	}
+	public void putData() 
+	{
+		System.out.println("FOUR WHEELER\nBrand:" + brand + "\nEngineType: "
+				+ EngineType + "\nCost:" + cost + "\nColor:" + color+"\n\n");
+	}
+}
+class MyTwoWheeler extends TwoWheeler 
+{
+	String OwnerName;
+	MyTwoWheeler(String ow,String br, int co, String et, String colo) 
+	{
+		OwnerName = ow;
+		super.brand=br;
+		super.cost = co;
+		super.EngineType = et;
+		super.color = colo;
+	}
 
-    /*
-        The word final here indicates that the class cannot be extended furthur.
-    */
-    FourWheeler(){
-        year_of_manufacture = 0;
-    }
-
-    void putData(int x){
-        year_of_manufacture = x;
-    }
-    int getData(){
-        return year_of_manufacture;
-    }
+	public void prin() 
+	{
+		System.out.println("The Vehicle \nBrand:"+super.brand+"\nEngineType:" + super.EngineType + "\nCost:" + super.cost + "\nColor: " 	+ super.color);
+		System.out.println("Owner:" + OwnerName);
+	}
 }
 
-class MyTwoWheeler extends TwoWheeler{
-
-    MyTwoWheeler(){
-            
-    }
-    /*
-        We are not writing the get Method here just to shoe the inheritance of the TwoWheeler class from MyTwoWheeler class.
-    */
-    void putData(int x){
-        super.putData(x);
-    }
-}
-
-public class Q9_Inheritance{
-
-    public static void main(String[] args){
+class Test
+{
+	public static void main(String args[]) 
+	{
         Scanner sc = new Scanner(System.in);
-        System.out.println("For Four Wheeler");
-        FourWheeler f1 = new FourWheeler();
-        System.out.println("Enter the year of Manufacture");
-        f1.putData(sc.nextInt());
-
-        System.out.println("For Two Wheeler");
-        MyTwoWheeler t1 = new MyTwoWheeler();
-        System.out.println("Enter the year of manufacture");
-        t1.putData(sc.nextInt());
-
-        System.out.println("The year of manufacture of the four wheeler is: "+f1.getData());
-        System.out.println("The year of manufacture of the two wheeler is: "+t1.getData());
-    }
+		/*TwoWheeler tw = new TwoWheeler();
+		tw.getData();
+		tw.putData();
+		FourWheeler fw=new FourWheeler();
+		fw.getData();
+		fw.putData();*/
+        
+        
+        System.out.println("Enter the details for your two wheeler");
+        System.out.println("Enter the Name of ownwer");
+        String name = sc.next();
+        System.out.println("Enter the Brand of Two wheeler");
+        String brand = sc.next();
+        
+        System.out.println("Enter the color of Two wheeler");
+        String color = sc.next();
+        
+        System.out.println("Enter the engine_type of Two wheeler");
+        String engine_type = sc.next();
+        
+        System.out.println("Enter the cost of Two wheeler");
+        int cost = sc.nextInt();
+        
+        System.out.println("Enter the Year of manufacture of Two wheeler");
+        int year_of_manufacture = sc.nextInt();
+        MyTwoWheeler mtw = new MyTwoWheeler(name,brand,cost,engine_type,color);
+		mtw.prin();
+	}
 }
