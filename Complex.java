@@ -30,8 +30,8 @@ public class Complex{
 
     public Complex mul_c(Complex c1,Complex c2){
         Complex c3 = new Complex();
-        c3.a = c1.a * c2.a;
-        c3.b = c1.b * c2.b;
+        c3.a = c1.a * c2.a - c1.b * c2.b;
+        c3.b = c1.b * c2.a + c1.a * c2.b;
         return c3;
     }
 
