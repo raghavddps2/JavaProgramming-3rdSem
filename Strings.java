@@ -31,7 +31,7 @@ public class Strings{
                         int n = sc.nextInt();
                         System.out.print("Enter the no of characters to be extracted");
                         int m = sc.nextInt();
-                        k = s.substring(n-1,m);
+                        k = s.substring(n-1,m+n-1);
                         System.out.println("The extracted string is:   "+ k);
                         break;
 
