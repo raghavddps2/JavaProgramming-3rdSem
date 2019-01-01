@@ -1,3 +1,8 @@
+/*
+	Even the author is not satisifed with this approach. But have to as now other details are given in the question. For the specific exam relates
+	Program please don't refer this program. Refer Q9_Inheritance2.java
+*/
+
 import java.util.*;
 
 abstract class Vehicle 
